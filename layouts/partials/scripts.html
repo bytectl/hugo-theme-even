@@ -130,3 +130,10 @@
 {{ range .Site.Params.customJS -}}
   <script src="{{ "/js/" | relURL }}{{ . }}"></script>
 {{ end }}
+
+<link href="{{"mermaid/mermaid.css" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet" />
+<script src="{{"mermaid/mermaid.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
+<script>
+  mermaid.initialize({ startOnLoad: true });
+</script>
+
